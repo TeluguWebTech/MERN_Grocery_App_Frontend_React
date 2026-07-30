@@ -5,7 +5,7 @@ const useAuthStore = create((set, get) => ({
   isLoggedIn: false,
   cartCount: 0,
 
-  // 🔐 Login
+  //  Login
   login: (userData, token) => {
     localStorage.setItem("userToken", token);
     localStorage.setItem("user", JSON.stringify(userData));
@@ -16,7 +16,7 @@ const useAuthStore = create((set, get) => ({
     });
   },
 
-  // ➕ Increase cart count
+  //  Increase cart count
   incrementCart: (count) => {
     const currentCount = get().cartCount;
     set({ cartCount: currentCount + count });
@@ -26,7 +26,7 @@ const useAuthStore = create((set, get) => ({
     set({ cartCount: count });
   },
 
-  // 🚪 Logout
+  //  Logout
 logout: () => {
   const confirmLogout = window.confirm("Are you sure you want to logout?");
 
@@ -41,7 +41,7 @@ logout: () => {
 },
 
 
-  // 🔄 Restore login after refresh
+  //  Restore login after refresh
   initializeAuth: () => {
     const token = localStorage.getItem("userToken");
     const storedUser = localStorage.getItem("user");
