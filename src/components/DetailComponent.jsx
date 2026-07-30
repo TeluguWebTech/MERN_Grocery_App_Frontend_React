@@ -12,9 +12,7 @@ const DetailComponent = () => {
 
   const { isLoggedIn, incrementCart } = useAuthStore();
 
-  // ==========================
-  // Fetch Single Product
-  // ==========================
+
   const singleHandler = async () => {
     try {
       const res = await axios.get(`${productUrl}/${id}`);
@@ -30,9 +28,7 @@ const DetailComponent = () => {
     singleHandler();
   }, [id]);
 
-  // ==========================
-  // Add To Cart
-  // ==========================
+
   const addToCartHandler = async () => {
     try {
       if (!isLoggedIn) {
@@ -57,7 +53,6 @@ const DetailComponent = () => {
 
       alert(res.data.message);
 
-      // ✅ Update cart count in navbar
       incrementCart(1);
 
     } catch (error) {
